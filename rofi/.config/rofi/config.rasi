@@ -1,0 +1,17 @@
+configuration {
+    font: "JetBrainsMono Nerd Font Light 10";
+    line-margin: 0;
+	line-padding: 10;
+	hide-scrollbar: true;
+
+    display-ssh:    "";
+    display-run:    "";
+    display-drun:   "󰲌";
+    display-window: "";
+    display-combi:  "";
+    show-icons:     true;
+
+    modi: "window,run,drun";
+}
+
+@theme "nord"
