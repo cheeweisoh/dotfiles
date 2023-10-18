@@ -230,6 +230,12 @@ globalkeys = gears.table.join(
                   end
               end,
               {description = "restore minimized", group = "client"}),
+	-- System
+	awful.key({ }, "#233", function() awful.spawn("brightnessctl set +5%") end,
+				{description = "increase brightness", group = "system"}),
+	awful.key({ }, "#232", function() awful.spawn("brightnessctl set 5%-") end,
+				{description = "decrease brightness", group = "system"}),
+
 
     -- Menubar
     awful.key({ modkey }, "p", function() awful.spawn("rofi -show powermenu -modi powermenu:rofi-power") end,
