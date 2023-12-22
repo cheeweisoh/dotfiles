@@ -235,6 +235,8 @@ globalkeys = gears.table.join(
 				{description = "increase brightness", group = "system"}),
 	awful.key({ }, "#232", function() awful.spawn("brightnessctl set 5%-") end,
 				{description = "decrease brightness", group = "system"}),
+	awful.key({ modkey }, "c", function() awful.spawn("dunstctl close-all") end,
+				{description = "clear notifications", group = "system"}),
 
 
     -- Menubar
