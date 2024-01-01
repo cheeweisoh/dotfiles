@@ -14,8 +14,8 @@ opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.cmdheight = 0
 opt.laststatus = 3
-vim.cmd "set noshowmode"
-vim.cmd "set noshowcmd"
+vim.cmd("set noshowmode")
+vim.cmd("set noshowcmd")
 opt.completeopt = "menuone,noinsert,noselect"
 
 -- search
@@ -34,6 +34,7 @@ opt.backspace = "indent,eol,start"
 opt.iskeyword:append("-")
 opt.mouse:append("a")
 opt.encoding = "UTF-8"
+opt.clipboard:append("unnamedplus")
 
 -- theme settings
 vim.g.nord_italic = false
