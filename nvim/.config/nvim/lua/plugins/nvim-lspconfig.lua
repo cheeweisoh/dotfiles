@@ -69,15 +69,38 @@ return {
 			},
 		})
 
+		-- Java
+		lspconfig.jdtls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
 		-- local luacheck = require("efmls-configs.linters.luacheck")
 		local stylua = require("efmls-configs.formatters.stylua")
 		-- local flake8 = require("efml-configs.linters.flake8")
 		local black = require("efmls-configs.formatters.black")
 
+		local java_format_config = {
+			filetypes = { "java" },
+			init_options = {
+				filetypes = { "java" },
+				format = {
+					command = "google-java-format",
+					args = {
+						"--style=google",
+						"--length=120",
+						"--indent_spaces=4",
+						"--align_type_annotations",
+					},
+				},
+			},
+		}
+
 		lspconfig.efm.setup({
 			filetypes = {
 				"lua",
 				"python",
+				"java",
 			},
 			init_options = {
 				documentFormatting = true,
@@ -91,6 +114,7 @@ return {
 				languages = {
 					lua = { stylua },
 					python = { black },
+					java = { java_format_config },
 				},
 			},
 		})
