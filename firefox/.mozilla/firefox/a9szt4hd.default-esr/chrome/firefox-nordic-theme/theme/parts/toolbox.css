@@ -57,7 +57,7 @@ findbar:-moz-window-inactive label,
 	-moz-box-ordinal-group: 1;
 }
 #navigator-toolbox #titlebar {
-	-moz-box-ordinal-group: 2;
+	order: 2;
 }
 #navigator-toolbox toolbar {
 	-moz-box-ordinal-group: 10;
