@@ -20,6 +20,7 @@ return {
                 "vim",
                 "gitignore",
                 "python",
+                "sql",
             },
             auto_install = true,
             highlight = {

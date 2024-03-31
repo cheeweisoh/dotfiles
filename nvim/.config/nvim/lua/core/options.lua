@@ -39,3 +39,8 @@ opt.clipboard:append("unnamedplus")
 -- theme settings
 vim.g.nord_italic = false
 vim.g.nord_cursorline_transparent = true
+
+-- dadbod
+vim.g.db_ui_auto_execute_table_helpers = 1
+vim.g.db_ui_winwidth = 30
+vim.g.db_ui_show_help = 0
