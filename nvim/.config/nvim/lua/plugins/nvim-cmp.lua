@@ -62,6 +62,7 @@ return {
 				{ name = "buffer" },
 				{ name = "path" },
 				{ name = "vim-dadbod-completion" },
+                { name = "cmp_r" },
 			}),
 			formatting = {
 				format = lspkind.cmp_format({
