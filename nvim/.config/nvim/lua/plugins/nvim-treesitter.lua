@@ -13,6 +13,7 @@ return {
             },
 			ensure_installed = {
                 "markdown",
+                "markdown_inline",
                 "json",
                 "java",
                 "bash",
@@ -21,6 +22,7 @@ return {
                 "gitignore",
                 "python",
                 "sql",
+                "regex"
             },
             auto_install = true,
             highlight = {
