@@ -37,7 +37,7 @@ opt.encoding = "UTF-8"
 opt.clipboard:append("unnamedplus")
 
 -- theme settings
-vim.g.nord_contrast = true
+vim.g.nord_contrast = false
 vim.g.nord_italic = false
 vim.g.nord_cursorline_transparent = true
 
