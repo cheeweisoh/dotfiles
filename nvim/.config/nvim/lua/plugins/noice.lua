@@ -3,7 +3,17 @@ return {
 	event = "VeryLazy",
 	dependencies = {
 		{ "MunifTanjim/nui.nvim", lazy = false },
-		{ "rcarriga/nvim-notify", lazy = false },
+		{
+            "rcarriga/nvim-notify",
+            lazy = false,
+            opts = {
+                on_open = function(win)
+                    local config = vim.api.nvim_win_get_config(win)
+                    config.border = "single"
+                    vim.api.nvim_win_set_config(win, config)
+                end,
+            },
+        },
 	},
 
 	config = function()
@@ -23,6 +33,15 @@ return {
 				inc_rename = false,
 				lsp_doc_border = false,
 			},
+
+            views = {
+                cmdline_popup = {
+                    border = {
+                        style = "single"
+                    },
+                },
+            },
+
 		})
 	end,
 }
