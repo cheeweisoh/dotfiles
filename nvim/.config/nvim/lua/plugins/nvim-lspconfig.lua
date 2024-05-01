@@ -73,14 +73,14 @@ return {
 		lspconfig.jdtls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			handlers = {
-				["language/status"] = function(_, result)
-					vim.print("***")
-				end,
-				["$/progress"] = function(_, result, ctx)
-					vim.print("Service Ready")
-				end,
-			},
+			-- handlers = {
+				-- ["language/status"] = function(_, result)
+					-- vim.print("***")
+				-- end,
+				-- ["$/progress"] = function(_, result, ctx)
+					-- vim.print("Service Ready")
+				-- end,
+			-- },
 		})
 
 		-- local luacheck = require("efmls-configs.linters.luacheck")
