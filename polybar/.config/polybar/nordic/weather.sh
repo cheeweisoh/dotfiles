@@ -158,71 +158,71 @@ function setIcons {
         #Thunderstorm
         ICON_COLOR=$COLOR_THUNDER
         if [ $DATE -ge $SUNRISE -a $DATE -le $SUNSET ]; then
-            ICON=""
+            ICON=""
         else
-            ICON=""
+            ICON=""
         fi
     elif [ $WID -le 311 ]; then
         #Light drizzle
         ICON_COLOR=$COLOR_LIGHT_RAIN
         if [ $DATE -ge $SUNRISE -a $DATE -le $SUNSET ]; then
-            ICON=""
+            ICON=""
         else
-            ICON=""
+            ICON=""
         fi
     elif [ $WID -le 321 ]; then
         #Heavy drizzle
         ICON_COLOR=$COLOR_HEAVY_RAIN
         if [ $DATE -ge $SUNRISE -a $DATE -le $SUNSET ]; then
-            ICON=""
+            ICON=""
         else
-            ICON=""
+            ICON=""
         fi
     elif [ $WID -le 531 ]; then
         #Rain
         ICON_COLOR=$COLOR_HEAVY_RAIN
         if [ $DATE -ge $SUNRISE -a $DATE -le $SUNSET ]; then
-            ICON=""
+            ICON=""
         else
-            ICON=""
+            ICON=""
         fi
     elif [ $WID -le 622 ]; then
         #Snow
         ICON_COLOR=$COLOR_SNOW
-        ICON=""
+        ICON=""
     elif [ $WID -le 771 ]; then
         #Fog
         ICON_COLOR=$COLOR_FOG
-        ICON=""
+        ICON=""
     elif [ $WID -eq 781 ]; then
         #Tornado
         ICON_COLOR=$COLOR_TORNADO
-        ICON=""
+        ICON=""
     elif [ $WID -eq 800 ]; then
         #Clear sky
         if [ $DATE -ge $SUNRISE -a $DATE -le $SUNSET ]; then
             ICON_COLOR=$COLOR_SUN
-            ICON=""
+            ICON=""
         else
             ICON_COLOR=$COLOR_MOON
-            ICON=""
+            ICON=""
         fi
     elif [ $WID -eq 801 ]; then
         # Few clouds
         if [ $DATE -ge $SUNRISE -a $DATE -le $SUNSET ]; then
             ICON_COLOR=$COLOR_SUN
-            ICON=""
+            ICON=""
         else
             ICON_COLOR=$COLOR_MOON
-            ICON=""
+            ICON=""
         fi
     elif [ $WID -le 804 ]; then
         # Overcast
         ICON_COLOR=$COLOR_CLOUD
-        ICON=""
+        ICON=""
     else
         ICON_COLOR=$COLOR_ERR
-        ICON=""
+        ICON=""
     fi
     WIND=""
     WINDFORCE=`echo "$RESPONSE" | jq .wind.speed`
@@ -302,11 +302,11 @@ function setIcons {
     TEMP=`echo "$TEMP" | cut -d "." -f 1`
     
     if [ "$TEMP" -le $COLD_TEMP ]; then
-        TEMP="%{F$COLOR_COLD}%{T$TEMP_FONT_CODE}%{T-}%{F-} $COLOR_TEXT_BEGIN$TEMP%{T$TEMP_FONT_CODE}$TEMP_ICON%{T-}$COLOR_TEXT_END"
+        TEMP="%{F$COLOR_COLD}%{T$TEMP_FONT_CODE}%{T-}%{F-} $COLOR_TEXT_BEGIN$TEMP%{T$TEMP_FONT_CODE}$TEMP_ICON%{T-}$COLOR_TEXT_END"
     elif [ `echo "$TEMP >= $HOT_TEMP" | bc` -eq 1 ]; then
-        TEMP="%{F$COLOR_HOT}%{T$TEMP_FONT_CODE}%{T-}%{F-} $COLOR_TEXT_BEGIN$TEMP%{T$TEMP_FONT_CODE}$TEMP_ICON%{T-}$COLOR_TEXT_END"
+        TEMP="%{F$COLOR_HOT}%{T$TEMP_FONT_CODE}%{T-}%{F-} $COLOR_TEXT_BEGIN$TEMP%{T$TEMP_FONT_CODE}$TEMP_ICON%{T-}$COLOR_TEXT_END"
     else
-        TEMP="%{F$COLOR_NORMAL_TEMP}%{T$TEMP_FONT_CODE}%{T-}%{F-} $COLOR_TEXT_BEGIN$TEMP%{T$TEMP_FONT_CODE}$TEMP_ICON%{T-}$COLOR_TEXT_END"
+        TEMP="%{F$COLOR_NORMAL_TEMP}%{T$TEMP_FONT_CODE}%{T-}%{F-} $COLOR_TEXT_BEGIN$TEMP%{T$TEMP_FONT_CODE}$TEMP_ICON%{T-}$COLOR_TEXT_END"
     fi
 }
 
