@@ -28,7 +28,7 @@ theme.nord13 = "#EBCB8B"
 theme.nord14 = "#A3BE8C"
 theme.nord15 = "#B48EAD"
 
-theme.font          = "JetBrains Mono Light 12"
+theme.font          = "Geist Mono 12"
 theme.transparent   = "#00000000"
 
 theme.bg_normal     = theme.nord0
@@ -99,7 +99,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 theme.icon_theme = nil
 
 
-theme.taglist_text_font = "JetBrains Mono 20"
+theme.taglist_text_font = "Geist Mono 20"
 -- theme.taglist_text_empty    =  {"","","","","","","","",""}
 -- theme.taglist_text_occupied =  {"","","","","","","","",""}
 -- theme.taglist_text_focused  = {"","","","","","","","",""}

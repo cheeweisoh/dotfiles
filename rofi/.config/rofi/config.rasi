@@ -1,5 +1,5 @@
 configuration {
-    font: "JetBrainsMono Nerd Font Light 10";
+    font: "Geist Mono Light 10";
     line-margin: 0;
 	line-padding: 10;
 	hide-scrollbar: true;
