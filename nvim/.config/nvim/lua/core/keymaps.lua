@@ -24,5 +24,8 @@ vim.keymap.set("v", ">", ">gv", { silent = true, noremap = true })
 vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = true })
 vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = true })
 
+-- undo search
+vim.keymap.set("n", "<leader>/", "<cmd>noh<CR>", { noremap = true }, { desc = "Clear Search" })
+
 -- noice
 vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
