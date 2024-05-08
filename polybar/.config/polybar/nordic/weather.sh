@@ -23,31 +23,33 @@ UNITS="metric"
 
 # Color Settings ______________________________________________________________
 
-COLOR_CLOUD="#FFFFFF"
+COLOR_CLOUD="#4C566A"
 # COLOR_CLOUD="#606060"
-COLOR_THUNDER="#FFFFFF"
+COLOR_THUNDER="#4C566A"
 # COLOR_THUNDER="#d3b987"
-COLOR_LIGHT_RAIN="#FFFFFF"
+COLOR_LIGHT_RAIN="#4C566A"
 # COLOR_LIGHT_RAIN="#73cef4"
-COLOR_HEAVY_RAIN="#FFFFFF"
+COLOR_HEAVY_RAIN="#4C566A"
 # COLOR_HEAVY_RAIN="#b3deef"
-COLOR_SNOW="#FFFFFF"
-COLOR_FOG="#FFFFFF"
+COLOR_SNOW="#4C566A"
+# COLOR_SNOW="#FFFFFF"
+COLOR_FOG="#4C566A"
 # COLOR_FOG="#606060"
-COLOR_TORNADO="#FFFFFF"
+COLOR_TORNADO="#4C566A"
 # COLOR_TORNADO="#d3b987"
-COLOR_SUN="#FFFFFF"
+COLOR_SUN="#4C566A"
 # COLOR_SUN="#ffc24b"
-COLOR_MOON="#FFFFFF"
-COLOR_ERR="#FFFFFF"
+COLOR_MOON="#4C566A"
+# COLOR_MOON="#FFFFFF"
+COLOR_ERR="#4C566A"
 # COLOR_ERR="#f43753"
-COLOR_WIND="#FFFFFF"
+COLOR_WIND="#4C566A"
 # COLOR_WIND="#73cef4"
-COLOR_COLD="#FFFFFF"
+COLOR_COLD="#4C566A"
 # COLOR_COLD="#b3deef"
-COLOR_HOT="#FFFFFF"
+COLOR_HOT="#4C566A"
 # COLOR_HOT="#f43753"
-COLOR_NORMAL_TEMP="#FFFFFF"
+COLOR_NORMAL_TEMP="#4C566A"
 
 # Leave "" if you want the default polybar color
 COLOR_TEXT=""
@@ -57,7 +59,7 @@ COLOR_TEXT=""
 WEATHER_FONT_CODE=4
 
 # Font for the thermometer icon
-TEMP_FONT_CODE=2
+TEMP_FONT_CODE=1
 
 # Wind settings _______________________________________________________________
 
@@ -292,11 +294,11 @@ function setIcons {
         WIND="$WIND |"
     fi
     if [ "$UNITS" = "metric" ]; then
-        TEMP_ICON="󰔄"
+        TEMP_ICON="°C"
     elif [ "$UNITS" = "imperial" ]; then
-        TEMP_ICON="󰔅"
+        TEMP_ICON="°F"
     else
-        TEMP_ICON="󰔆"
+        TEMP_ICON="K"
     fi
     
     TEMP=`echo "$TEMP" | cut -d "." -f 1`
@@ -311,7 +313,7 @@ function setIcons {
 }
 
 function outputCompact {
-    OUTPUT="$WIND %{T$WEATHER_FONT_CODE}%{F$ICON_COLOR}$ICON%{F-}%{T-} $ERR_MSG$COLOR_TEXT_BEGIN$DESCRIPTION$COLOR_TEXT_END| $TEMP"
+    OUTPUT="$WIND %{T$WEATHER_FONT_CODE}%{F$ICON_COLOR}$ICON%{F-}%{T-} $ERR_MSG$COLOR_TEXT_BEGIN$DESCRIPTION$COLOR_TEXT_END%{F#4C566A}%{F-}$TEMP"
     # echo "Output: $OUTPUT" >> "$HOME/.weather.log"
     echo "$OUTPUT"
 }
