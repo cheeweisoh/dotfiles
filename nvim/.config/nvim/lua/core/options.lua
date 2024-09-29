@@ -1,4 +1,9 @@
 local opt = vim.opt
+local api = vim.api
+
+-- colors
+local bordercolor = "#b4befe"
+local textcolor = "#cad3f5"
 
 -- tabs / indentations
 opt.tabstop = 4
@@ -10,6 +15,7 @@ opt.wrap = false
 
 -- appearance
 opt.number = true
+opt.relativenumber = true
 opt.termguicolors = true
 opt.signcolumn = "yes"
 opt.cmdheight = 0
@@ -36,12 +42,32 @@ opt.mouse:append("a")
 opt.encoding = "UTF-8"
 opt.clipboard:append("unnamedplus")
 
--- theme settings
-vim.g.nord_contrast = false
-vim.g.nord_italic = false
-vim.g.nord_cursorline_transparent = true
-
 -- dadbod
 vim.g.db_ui_auto_execute_table_helpers = 1
 vim.g.db_ui_winwidth = 30
 vim.g.db_ui_show_help = 0
+
+-- telescope
+api.nvim_set_hl(0, "TelescopeBorder", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "TelescopeResultsBorder", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "TelescopePreviewBorder", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "TelescopePromptBorder", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "TelescopeTitle", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "TelescopeResultsTitle", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "TelescopePreviewTitle", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "TelescopePromptTitle", { fg = bordercolor, bg = "none" })
+
+-- noice
+api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "NoiceCmdlinePopupBorderSearch", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "NoiceCmdlineIconCmdline", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "NoiceCmdlineIconSearch", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "NoiceCmdlineIconHelp", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "NoiceCmdlineIconFilter", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "NoiceCmdlineIconInput", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "NoiceCmdlineIconLua", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "NoiceCmdlinePopupTitle", { fg = bordercolor, bg = "none" })
+
+-- lazygit
+api.nvim_set_hl(0, "LazyGitBorder", { fg = bordercolor, bg = "none" })
+api.nvim_set_hl(0, "LazyGitFloat", { fg = bordercolor, bg = "none" })

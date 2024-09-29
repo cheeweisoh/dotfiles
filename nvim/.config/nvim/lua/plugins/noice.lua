@@ -9,9 +9,10 @@ return {
 			opts = {
 				on_open = function(win)
 					local config = vim.api.nvim_win_get_config(win)
-					config.border = "single"
+					config.border = "rounded"
 					vim.api.nvim_win_set_config(win, config)
 				end,
+				background_colour = "#000000",
 			},
 		},
 	},
@@ -19,7 +20,7 @@ return {
 	config = function()
 		require("noice").setup({
 			lsp = {
-                progress = { enabled = false },
+				progress = { enabled = false },
 				override = {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 					["vim.lsp.util.stylize_markdown"] = true,
@@ -38,7 +39,7 @@ return {
 			views = {
 				cmdline_popup = {
 					border = {
-						style = "single",
+						style = "rounded",
 					},
 				},
 			},
@@ -53,7 +54,6 @@ return {
 				},
 				opts = { skip = true },
 			},
-
 		})
 	end,
 }

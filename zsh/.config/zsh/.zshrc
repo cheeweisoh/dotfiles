@@ -5,21 +5,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# Source
-source /etc/profile
-source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+source $ZDOTDIR/.zsh-functions
+
+zsh_add_file ".zsh-aliases"
+zsh_add_plugin "zsh-users/zsh-autosuggestions"
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
+
+bindkey -s "^g" "lfcd\n"
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-
-# Import functions
-source "$ZDOTDIR/.zsh-functions"
-bindkey -s "^g" "lfcd\n"
-bindkey -s "^o" "lf\n"
-
-# Local files
-zsh_add_file ".zsh-aliases"
-
-# PLugins
-zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-syntax-highlighting"

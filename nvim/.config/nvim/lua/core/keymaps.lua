@@ -1,31 +1,42 @@
+local keymap = vim.keymap
+
 -- nvim tree
-vim.keymap.set("n", "<leader>m", "<cmd>NvimTreeFocus<CR>", { desc = "Focus Tree Explorer" })
-vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle Tree Explorer" })
+keymap.set("n", "<leader>m", "<cmd>NvimTreeFocus<CR>", { desc = "Focus Tree Explorer" })
+keymap.set("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle Tree Explorer" })
 
 -- pane nagivation
-vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "Navigate Left" })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "Navigate Right" })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { desc = "Navigate Down" })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { desc = "Navigate Up" })
+keymap.set("n", "<C-h>", "<C-w>h", { desc = "Navigate Left" })
+keymap.set("n", "<C-l>", "<C-w>l", { desc = "Navigate Right" })
+keymap.set("n", "<C-j>", "<C-w>j", { desc = "Navigate Down" })
+keymap.set("n", "<C-k>", "<C-w>k", { desc = "Navigate Up" })
 
 -- pane management
-vim.keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Split Vertically" })
-vim.keymap.set("n", "<leader>sh", "<cmd>split<CR>", { desc = "Split Horizontally" })
-vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Horizontal Increase Size"})
-vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Horizontal Decrease Size"})
-vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize +2<CR>", { desc = "Vertical Increase Size"})
-vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { desc = "Vertical Decrease Size"})
+keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Split Vertically" })
+keymap.set("n", "<leader>sh", "<cmd>split<CR>", { desc = "Split Horizontally" })
+keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Horizontal Increase Size" })
+keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Horizontal Decrease Size" })
+keymap.set("n", "<C-Left>", "<cmd>vertical resize +2<CR>", { desc = "Vertical Increase Size" })
+keymap.set("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { desc = "Vertical Decrease Size" })
 
 -- indenting
-vim.keymap.set("v", "<", "<gv", { silent = true, noremap = true })
-vim.keymap.set("v", ">", ">gv", { silent = true, noremap = true })
+keymap.set("n", "<", "<gv", { silent = true, noremap = true }, { desc = "Decrease Indent" })
+keymap.set("n", ">", ">gv", { silent = true, noremap = true }, { desc = "Increase Indent" })
+keymap.set("v", "<", "<gv", { silent = true, noremap = true }, { desc = "Increase Indent" })
+keymap.set("v", ">", ">gv", { silent = true, noremap = true }, { desc = "Decrease Indent" })
 
 -- comments
-vim.api.nvim_set_keymap("n", "<C-_>", "gcc", { noremap = true })
-vim.api.nvim_set_keymap("v", "<C-_>", "gcc", { noremap = true })
+keymap.set("n", "<C-_>", "gcc", { noremap = true }, { desc = "Comment Line" })
+keymap.set("v", "<C-_>", "gcc", { noremap = true }, { desc = "Comment Line" })
 
 -- undo search
-vim.keymap.set("n", "<leader>/", "<cmd>noh<CR>", { noremap = true }, { desc = "Clear Search" })
+keymap.set("n", "<leader>/", "<cmd>noh<CR>", { noremap = true }, { desc = "Clear Search" })
 
 -- noice
-vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
+keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
+
+-- telescope
+keymap.set("n", "<leader>fk", "<cmd>Telescope keymaps<CR>", { desc = "Show Keymaps" })
+keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Show Help Tags" })
+keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find Files" })
+keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Live Grep" })
+keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find Buffers" })
