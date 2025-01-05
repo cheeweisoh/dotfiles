@@ -1,10 +1,11 @@
 [manager]
 prepend_keymap = [
-    { on = ["g", "d" ], run = "cd ~/Downloads/", desc = "Downloads" },
-    { on = ["g", "c" ], run = "cd ~/.config/", desc = "Config" },
-    { on = ["g", "r" ], run = "cd ~/Repos/", desc = "Repos" },
-    { on = ["g", "m" ], run = "cd ~/Masters/", desc = "Masters"},
-    { on = ["g", "i" ], run = "cd ~/Library/Mobile\\ Documents/com~apple~CloudDocs/", desc = "iCloud"},
-    { on = [ "z", "u" ], run = "shell --confirm 'unzip $@'", desc = "Unzip file" },
+    { on = ["g", "d"], run = "cd ~/Downloads/", desc = "Go to Downloads" },
+    { on = ["g", "c"], run = "cd ~/.config/", desc = "Go to Config" },
+    { on = ["g", "r"], run = "cd ~/Repos/", desc = "Go to Repos" },
+    { on = ["g", "m"], run = "cd ~/Masters/", desc = "Go to Masters"},
+    { on = ["g", "i"], run = "cd ~/Library/Mobile\\ Documents/com~apple~CloudDocs/", desc = "Go to iCloud"},
+    { on = ["g", "o"], run = "cd ~/Library/Mobile\\ Documents/iCloud~md~Obsidian", desc = "Go to Obsidian"},
+    { on = ["z", "u"], run = "shell 'unzip $@'", desc = "Unzip file" },
     { on = ["z", "c"], run = "plugin compress", desc = "Zip files"},
 ]
