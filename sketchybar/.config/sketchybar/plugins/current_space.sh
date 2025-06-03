@@ -18,8 +18,8 @@ update_space() {
 
     sketchybar --set $NAME \
         icon=$SPACE_ID \
-        icon.padding_left=9 \
-        icon.padding_right=10
+        # icon.padding_left=9 \
+        # icon.padding_right=10
 }
 
 case "$SENDER" in
