@@ -53,8 +53,19 @@ return {
 			on_attach = on_attach,
 			settings = {
 				pylsp = {
+					configurationSources = { "flake8" },
 					plugins = {
 						black = {
+							enabled = false,
+							line_length = 1000,
+							ignore = {
+								"E203", -- whitespace before ",", ";", or ":"
+								"E501", -- line too long
+								"W293", -- blank line contains whitespace
+								"W391", -- blank line at end of file
+							},
+						},
+						flake8 = {
 							enabled = true,
 							line_length = 1000,
 							ignore = {
@@ -64,10 +75,28 @@ return {
 								"W391", -- blank line at end of file
 							},
 						},
-						-- flake8 = {
-						-- 	enable = true,
-						-- 	maxLineLength = 1000,
-						-- },
+						autopep8 = {
+							enabled = true,
+							line_length = 1000,
+							ignore = {
+								"E203", -- whitespace before ",", ";", or ":"
+								"E501", -- line too long
+								"W293", -- blank line contains whitespace
+								"W391", -- blank line at end of file
+							},
+						},
+						mccabe = { enabled = false },
+						pycodestyle = {
+							enabled = true,
+							line_length = 1000,
+							ignore = {
+								"E203", -- whitespace before ",", ";", or ":"
+								"E501", -- line too long
+								"W293", -- blank line contains whitespace
+								"W391", -- blank line at end of file
+							},
+						},
+						pyflakes = { enabled = false },
 					},
 				},
 			},

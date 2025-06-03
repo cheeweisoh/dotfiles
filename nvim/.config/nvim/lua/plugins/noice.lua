@@ -51,8 +51,18 @@ return {
 						kind = "",
 						find = "written",
 					},
+					opts = { skip = true },
 				},
-				opts = { skip = true },
+				{
+					filter = {
+						event = { "msg_show", "notify" },
+						any = {
+							{ find = "DBUI" },
+							{ find = "DB:" },
+						},
+					},
+					opts = { skip = true },
+				},
 			},
 		})
 	end,

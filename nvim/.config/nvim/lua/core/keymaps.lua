@@ -13,10 +13,10 @@ keymap.set("n", "<C-k>", "<C-w>k", { desc = "Navigate Up" })
 -- pane management
 keymap.set("n", "<leader>sv", "<cmd>vsplit<CR>", { desc = "Split Vertically" })
 keymap.set("n", "<leader>sh", "<cmd>split<CR>", { desc = "Split Horizontally" })
-keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Horizontal Increase Size" })
-keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Horizontal Decrease Size" })
-keymap.set("n", "<C-Left>", "<cmd>vertical resize +2<CR>", { desc = "Vertical Increase Size" })
-keymap.set("n", "<C-Right>", "<cmd>vertical resize -2<CR>", { desc = "Vertical Decrease Size" })
+keymap.set("n", "<S-k>", "<cmd>resize +2<CR>", { desc = "Horizontal Increase Size" })
+keymap.set("n", "<S-j>", "<cmd>resize -2<CR>", { desc = "Horizontal Decrease Size" })
+keymap.set("n", "<S-h>", "<cmd>vertical resize +2<CR>", { desc = "Vertical Increase Size" })
+keymap.set("n", "<S-l>", "<cmd>vertical resize -2<CR>", { desc = "Vertical Decrease Size" })
 
 -- indenting
 keymap.set("n", "<", "<gv", { silent = true, noremap = true }, { desc = "Decrease Indent" })
@@ -40,3 +40,11 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<CR>", { desc = "Show Hel
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { desc = "Find Files" })
 keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { desc = "Live Grep" })
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { desc = "Find Buffers" })
+keymap.set("n", "<leader>o", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "Find Document Symbols" })
+
+-- dbui
+keymap.set("n", "<leader>db", "<cmd>DBUIToggle<CR>", { desc = "Toggle DBUI" })
+
+-- iron
+keymap.set("n", "<leader>i", "")
+keymap.set("t", "<leader><esc>", "<C-\\><C-n>", { desc = "Exit Terminal" })
