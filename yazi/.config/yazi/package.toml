@@ -1,5 +1,14 @@
-[plugin]
-deps = [{ use = "yazi-rs/plugins:no-status", rev = "7afba3a" }, { use = "yazi-rs/plugins:full-border", rev = "7afba3a" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:no-status"
+rev = "7afba3a"
+hash = "f4d72c29cb0ddd9605e78f234216fd4e"
 
-[flavor]
-deps = [{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "8458d25" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "b12a9ab"
+hash = "1f3dad061209081a6b04dd6ff2cb06c7"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "8458d25"
+hash = "44ab3265147788a4e780b2060341d65e"
