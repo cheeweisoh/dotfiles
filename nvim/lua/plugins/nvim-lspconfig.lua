@@ -20,6 +20,7 @@ return {
 		lspconfig.gopls.setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
+			filetypes = { "go" },
 		})
 
 		-- Java
@@ -46,6 +47,19 @@ return {
 				},
 			},
 		})
+
+		-- Typescript
+		lspconfig.vtsls.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+		})
+
+		-- SQL
+		-- lspconfig.sqlls.setup({
+		-- 	capabilities = capabilities,
+		-- 	-- on_attach = on_attach,
+		-- 	filetypes = { "sql", "mysql" },
+		-- })
 
 		-- Python
 		lspconfig.pylsp.setup({

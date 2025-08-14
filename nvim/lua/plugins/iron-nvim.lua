@@ -128,8 +128,8 @@ return {
 				repl_filetype = function(bufnr, ft)
 					return ft
 				end,
-				-- repl_open_cmd = "vertical botright split",
-				repl_open_cmd = "horizontal botright 20 split",
+				repl_open_cmd = "vertical botright split",
+				-- repl_open_cmd = "horizontal botright 20 split",
 			},
 
 			keymaps = {

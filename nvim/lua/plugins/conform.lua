@@ -8,6 +8,7 @@ return {
 				java = { "google-java-format" },
 				lua = { "stylua" },
 				python = { "black" },
+				sql = { "sleek" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
