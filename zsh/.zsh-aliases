@@ -1,0 +1,6 @@
+alias lg="lazygit"
+alias ld="lazydocker"
+alias lsql="lazysql"
+alias py="python3"
+alias python="python3"
+alias cc="claude"

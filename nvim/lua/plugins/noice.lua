@@ -12,7 +12,17 @@ return {
 					config.border = "rounded"
 					vim.api.nvim_win_set_config(win, config)
 				end,
+				render = "minimal",
+				stages = "static",
+				timeout = 1500,
 				background_colour = "#000000",
+				icons = {
+					ERROR = "",
+					WARN = "",
+					INFO = "",
+					DEBUG = "",
+					TRACE = "",
+				},
 			},
 		},
 	},
@@ -34,6 +44,11 @@ return {
 				long_message_to_split = true,
 				inc_rename = false,
 				lsp_doc_border = false,
+			},
+
+			notify = {
+				enable = true,
+				view = "notify",
 			},
 
 			views = {

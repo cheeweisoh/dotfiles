@@ -70,3 +70,4 @@ api.nvim_set_hl(0, "LazyGitFloat", { fg = bordercolor, bg = "none" })
 
 -- diagnostic.config({ virtual_lines = true })
 diagnostic.config({ virtual_text = true })
+api.nvim_set_hl(0, "FloatBorder", { fg = bordercolor, bg = "none" })

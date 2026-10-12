@@ -1,0 +1,98 @@
+function zsh_add_file() {
+    [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
+}
+
+function zsh_add_plugin() {
+    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
+    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then 
+        # For plugins
+        zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
+        zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
+    else
+        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
+    fi
+}
+
+function zsh_add_completion() {
+    PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
+    if [ -d "$ZDOTDIR/plugins/$PLUGIN_NAME" ]; then 
+        # For completions
+		completion_file_path=$(ls $ZDOTDIR/plugins/$PLUGIN_NAME/_*)
+		fpath+="$(dirname "${completion_file_path}")"
+        zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh"
+    else
+        git clone "https://github.com/$1.git" "$ZDOTDIR/plugins/$PLUGIN_NAME"
+		fpath+=$(ls $ZDOTDIR/plugins/$PLUGIN_NAME/_*)
+		rm $ZDOTDIR/.zccompdump
+    fi
+	completion_file="$(basename "${completion_file_path}")"
+	if [ "$2" = true ] && compinit "${completion_file:1}"
+}
+
+lfcd () {
+    tmp="$(mktemp)"
+    lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+    fi
+}
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
+function create_tex_proj() {
+    if [ $# -ne 1 ]; then
+        echo "Usage: create_tex_proj project_name"
+        return 1
+    fi
+
+    local PROJECT_NAME=$1
+
+    mkdir -p "$PROJECT_NAME"
+    cd "$PROJECT_NAME" || { echo "Failed to enter directory"; return 1;}
+
+    mkdir -p images
+    cat <<EOL > $PROJECT_NAME.tex
+\documentclass[a4paper]{article}
+
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[backend=biber,style=numeric]{biblatex}
+\addbibresource{references.bib}
+
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+
+\title{$PROJECT_NAME}
+\author{Your Name}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\printbibliography
+
+\end{document}
+EOL
+    printf "# Makefile for LaTeX project\n\nLATEX=pdflatex\nBIBTEX=biber\nPROJECT=%s\n\nall: pdf clean\n\npdf: \$(PROJECT).tex references.bib\n\t\$(LATEX) \$(PROJECT).tex\n\t\$(BIBTEX) \$(PROJECT)\n\t\$(LATEX) \$(PROJECT).tex\n\t\$(LATEX) \$(PROJECT).tex\n\nclean:\n\t rm -f *.aux *.bbl *.bcf *.blg *.log *.run.xml *.toc *.out *.synctex.gz\n\n.PHONY: all pdf clean\n" "$PROJECT_NAME" > Makefile
+
+    touch references.bib
+
+    echo "LaTeX project '$PROJECT_NAME' created successfully!"
+}

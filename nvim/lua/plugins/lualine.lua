@@ -4,7 +4,7 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "catppuccin",
+				theme = "catppuccin-nvim",
 				globalstatus = true,
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
@@ -18,10 +18,12 @@ return {
 				},
 				lualine_c = {},
 				lualine_x = {
-					{ "diagnostics", color = { bg = "#1e1e2e" } },
+					-- { "diagnostics", color = { bg = "#1e1e2e" } },
+					{ "diagnostics", color = { bg = "none" } },
 				},
 				lualine_y = {
-					{ "encoding", color = { bg = "#1e1e2e" } },
+					{ "encoding", color = { bg = "none" } },
+					-- { "encoding", color = { bg = "#1e1e2e" } },
 					{
 						function()
 							return "│"
@@ -29,7 +31,8 @@ return {
 						color = { fg = "#6c7086", bg = "none" },
 						padding = 0,
 					},
-					{ "filetype", color = { bg = "#1e1e2e" } },
+					{ "filetype", color = { bg = "none" } },
+					-- { "filetype", color = { bg = "#1e1e2e" } },
 				},
 				lualine_z = {
 					{
@@ -39,7 +42,8 @@ return {
 						color = { fg = "#6c7086", bg = "none" },
 						padding = 0,
 					},
-					{ "branch", color = { bg = "#1e1e2e", fg = "#89b4fa" } },
+					{ "branch", color = { bg = "none", fg = "#89b4fa" } },
+					-- { "branch", color = { bg = "#1e1e2e", fg = "#89b4fa" } },
 				},
 			},
 		})
